@@ -1,6 +1,17 @@
 
+
+
+document.addEventListener("click", mostrarinfo)
+function mostrarinfo(e){
+    // console.log(e.target.id);
+    let poke_select= e.target.id;
+    if(poke_select){
+        pokeff(poke_select);
+    }
+}
+
 const pokeData = document.querySelector(".pokeData")
-const scard = document.querySelector("#scard");
+// const scard = document.querySelector("#scard");
 // const pokeData = document.getElementById(".pokeData");
 const previous = document.querySelector("#previous");
 const next = document.querySelector("#next");
@@ -13,17 +24,21 @@ let limit = 8;
 previous.addEventListener('click',() => {
     if (offset != 1){
         offset -= 9;
-        
     poksf(offset, limit);
     }
 })
 
 next.addEventListener('click',() => {
     offset +=9;
-   
     poksf(offset, limit);
 })
-
+function pokeff(id) { 
+    fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`)
+    .then((res) => res.json())
+    .then ((data) =>{
+        console.log(data); 
+    });    
+}
 function pokef(id) { 
     fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`)
     .then((res) => res.json())
@@ -45,6 +60,15 @@ function mostrarpoke(poke){
     const inf =document.createElement("div");
     inf.classList.add("poke-cont");
 
+    const button=document.createElement("button");
+    button.classList.add('btn-pokemon');
+    let pokemon_id = poke.id
+    button.id = pokemon_id;
+
+
+
+    button.innerText='Ver pokemon';
+
     const spriteCont= document.createElement("div");
     spriteCont.classList.add("img-cont");
 
@@ -63,13 +87,14 @@ function mostrarpoke(poke){
     inf.appendChild(spriteCont);
     inf.appendChild(number);
     inf.appendChild(name);  
+    inf.appendChild(button);
 
     const perfilcont = document.createElement("div");
     perfilcont.classList.add("perfil-cont");
 
     const perfilB = document.createElement("div");
     perfilB.classList.add("poke-block-b");
-    perfilB.appendChild(statcaract(poke.stats));
+    // perfilB.appendChild(statcaract(poke.stats));
    
     perfilcont.appendChild(perfilB); 
     inf.appendChild(perfilcont);   
@@ -77,38 +102,36 @@ function mostrarpoke(poke){
     pokeData.appendChild(inf);
     } 
 
-    function statcaract(stats) {
-        const statsContainer = document.createElement("div");
-        statsContainer.classList.add("stats-container");
+    // function statcaract(stats) {
+    //     const statsContainer = document.createElement("div");
+    //     statsContainer.classList.add("stats-container");
       
-        for (let i = 0; i < 3; i++) {
-          const stat = stats[i];
+    //     for (let i = 0; i < 3; i++) {
+    //       const stat = stats[i];
       
-          const statPercent = stat.base_stat;
-          const statContainer = document.createElement("stat-container");
-          statContainer.classList.add("stat-container");
+    //       const statPercent = stat.base_stat;
+    //       const statContainer = document.createElement("stat-container");
+    //       statContainer.classList.add("stat-container");
       
-          const statName = document.createElement("p");
-          statName.textContent = stat.stat.name;
+    //       const statName = document.createElement("p");
+    //       statName.textContent = stat.stat.name;
       
-          const progress = document.createElement("div");
-          progress.classList.add("progress");
+    //       const progress = document.createElement("div");
+    //       progress.classList.add("progress");
       
-          const statb = document.createElement("div");
-          statb.style.width = statPercent;
+    //       const statb = document.createElement("div");
+    //       statb.style.width = statPercent;
       
-          statb.textContent = stat.base_stat;
+    //       statb.textContent = stat.base_stat;
       
-          progress.appendChild(statb);
-          statContainer.appendChild(statName);
-          statContainer.appendChild(progress);
+    //       progress.appendChild(statb);
+    //       statContainer.appendChild(statName);
+    //       statContainer.appendChild(progress);
       
-          statsContainer.appendChild(statContainer);
-        }
+    //       statsContainer.appendChild(statContainer);
+    //     }
       
-        return statsContainer;
-      }
+    //     return statsContainer;
+    //   }
 
  poksf(offset,limit);
-
-
