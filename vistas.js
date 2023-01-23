@@ -1,7 +1,4 @@
-
-
-
-document.addEventListener("click", mostrarinfo)
+document.addEventListener("click", mostrarinfo);
 function mostrarinfo(e){
     // console.log(e.target.id);
     let poke_select= e.target.id;
@@ -11,12 +8,11 @@ function mostrarinfo(e){
 }
 
 const pokeData = document.querySelector(".pokeData")
-// const scard = document.querySelector("#scard");
+const scard = document.querySelector("#scard");
 // const pokeData = document.getElementById(".pokeData");
 const previous = document.querySelector("#previous");
 const next = document.querySelector("#next");
 const pagination = document.querySelector(".pagination");
-
 
 let offset = 1;
 let limit = 8;
@@ -54,8 +50,7 @@ function poksf(offset, limit){
     }
 }
 
-function mostrarpoke(poke){
-    
+function mostrarpoke(poke){    
     
     const inf =document.createElement("div");
     inf.classList.add("poke-cont");
@@ -64,8 +59,6 @@ function mostrarpoke(poke){
     button.classList.add('btn-pokemon');
     let pokemon_id = poke.id
     button.id = pokemon_id;
-
-
 
     button.innerText='Ver pokemon';
 
@@ -92,46 +85,53 @@ function mostrarpoke(poke){
     const perfilcont = document.createElement("div");
     perfilcont.classList.add("perfil-cont");
 
+    button.onclick = function() {
+        perfilcont.style.display = "block";
+      }
+      perfilcont.onclick= function(){
+        perfilcont.style.display="none";
+      }
+
     const perfilB = document.createElement("div");
     perfilB.classList.add("poke-block-b");
-    // perfilB.appendChild(statcaract(poke.stats));
+    perfilB.appendChild(statcaract(poke.stats));
    
     perfilcont.appendChild(perfilB); 
     inf.appendChild(perfilcont);   
 
     pokeData.appendChild(inf);
-    } 
+}
 
-    // function statcaract(stats) {
-    //     const statsContainer = document.createElement("div");
-    //     statsContainer.classList.add("stats-container");
+    function statcaract(stats) {
+        const statsContainer = document.createElement("div");
+        statsContainer.classList.add("stats-container");
       
-    //     for (let i = 0; i < 3; i++) {
-    //       const stat = stats[i];
+        for (let i = 0; i < 3; i++) {
+          const stat = stats[i];
       
-    //       const statPercent = stat.base_stat;
-    //       const statContainer = document.createElement("stat-container");
-    //       statContainer.classList.add("stat-container");
+          const statPercent = stat.base_stat;
+          const statContainer = document.createElement("stat-container");
+          statContainer.classList.add("stat-container");
       
-    //       const statName = document.createElement("p");
-    //       statName.textContent = stat.stat.name;
+          const statName = document.createElement("p");
+          statName.textContent = stat.stat.name;
       
-    //       const progress = document.createElement("div");
-    //       progress.classList.add("progress");
+          const progress = document.createElement("div");
+          progress.classList.add("progress");
       
-    //       const statb = document.createElement("div");
-    //       statb.style.width = statPercent;
+          const statb = document.createElement("div");
+          statb.style.width = statPercent;
       
-    //       statb.textContent = stat.base_stat;
+          statb.textContent = stat.base_stat;
       
-    //       progress.appendChild(statb);
-    //       statContainer.appendChild(statName);
-    //       statContainer.appendChild(progress);
+          progress.appendChild(statb);
+          statContainer.appendChild(statName);
+          statContainer.appendChild(progress);
       
-    //       statsContainer.appendChild(statContainer);
-    //     }
+          statsContainer.appendChild(statContainer);
+        }
       
-    //     return statsContainer;
-    //   }
+        return statsContainer;
+      }
 
  poksf(offset,limit);
