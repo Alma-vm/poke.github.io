@@ -14,6 +14,7 @@ const previous = document.querySelector("#previous");
 const next = document.querySelector("#next");
 const pagination = document.querySelector(".pagination");
 
+
 let offset = 1;
 let limit = 8;
 
@@ -50,7 +51,7 @@ function poksf(offset, limit){
     }
 }
 
-function mostrarpoke(poke){    
+function mostrarpoke(poke){
     
     const inf =document.createElement("div");
     inf.classList.add("poke-cont");
@@ -94,8 +95,13 @@ function mostrarpoke(poke){
 
     const perfilB = document.createElement("div");
     perfilB.classList.add("poke-block-b");
+
+    const imgb = document.createElement("img");
+    imgb.src=poke.sprites.front_shiny;
+    perfilB.appendChild(imgb);
+
     perfilB.appendChild(statcaract(poke.stats));
-   
+
     perfilcont.appendChild(perfilB); 
     inf.appendChild(perfilcont);   
 
