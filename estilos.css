@@ -51,25 +51,31 @@ body {
     height: 40px;
     width: 70px;
     border-radius: 10%;
-    box-shadow: 0 3px 15px rgba(10, 41, 41, 0.5);
+    box-shadow: 0 3px 15px rgba(100, 100, 100, 0.5);
   } 
-  
-  #scard{
-  position: absolute;
-  background-color: red;
-  top: 50%;
-  left: 50%;
+  .btn-pokemon, #myBtn{
+    border:none;
+    height: 40px;
+    width: 100px;
+    border-radius: 8%;
+    box-shadow: 0 3px 15px rgba(100, 100, 100, 0.5);
   }
-/* contenedor */
+
+  
+ .scard{
+  display: none;
+  position: absolute;
+  top: 5%;
+  left: 50%;
+ }
   .perfil-cont {
-    display: none;
     position: relative;
     width: 100%;
     height: 100%;
     text-align: center;
 
   }
-   
+   /* frente hp */
  .poke-block-b{
   border-radius: 10px;
   padding: 10px;
@@ -82,11 +88,13 @@ body {
 .poke-block-b p {
   margin: 5px;
 }
+/* contenedor */
  .perfil-cont{
+  display: none;
   border-radius: 10px;
-  padding: 10px;
-  background-color: rgb(231, 222, 222);
-  box-shadow: 0 3px 15px rgba(100, 100, 100, 0.5);
+  padding: 5px;
+  /* background-color: rgb(231, 222, 222); */
+  /* box-shadow: 0 3px 15px rgba(100, 100, 100, 0.5); */
   width: 90%;
   height: 50%;
 }
