@@ -16,7 +16,7 @@ body {
     color: white;
   }
   
-  .pokeData {
+  #pokeData {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 30px;
@@ -42,6 +42,7 @@ body {
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 20px;
+
   }
   .page-link{
     text-decoration: none;
@@ -122,7 +123,7 @@ header nav{
   float:right;
   line-height: 200px;
 }
-.perfilbtn {
+#perfilbtn {
   background:none;
   display: inline-block;
   border: none;
@@ -133,7 +134,22 @@ header nav{
   font-size: 20px;
   font-weight: bold;
 }
-.perfilbtn:hover{
+#perfilbtn:hover{
+  background: rgb(221, 214, 214);
+  border-radius: 20px;
+}
+#inicio{
+  background:none;
+  display: inline-block;
+  border: none;
+  color:rgb(245, 243, 241);
+  text-decoration: none;
+  padding: 10px 20px;
+  line-height: normal;
+  font-size: 20px;
+  font-weight: bold;
+}
+#inicio:hover{
   background: rgb(221, 214, 214);
   border-radius: 20px;
 }
@@ -153,16 +169,72 @@ h1{
   padding-top: 100px;
 }
 .infp {
-display: none;
   border-radius: 10px;
   padding: 5px;
-  background-color: rgb(231, 222, 222);
-  box-shadow: 0 3px 15px rgba(100, 100, 100, 0.5);
-  width: 50%;
-  height: 70%;
-  float:right;
+  width: 90%;
+  height: 90%;
+  margin-bottom: 20px;
 }
-.infp li{
-  list-style: none;
+.infp p{
+margin-bottom: -40px;
+}
+.infp h2 {
+  margin-bottom: -5px
 }
 
+/* The Modal (background) */
+.modal {
+  display: none; 
+  position: fixed; 
+  z-index: 1; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.4); 
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: rgb(231, 222, 222);
+  box-shadow: 0 3px 15px rgba(100, 100, 100, 0.5);
+  margin: 15% auto; 
+  padding: 20px;
+  border-radius: 10px;
+  width: 60%; 
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+input{
+  border: none;
+  border-radius: 10px;
+  color:rgb(107, 104, 100);
+  outline:none ;
+  padding: 10px 20px;
+  font-size: 20px;
+  font-weight: bold;
+}
+input:hover{ 
+  box-shadow: 0 3px 15px rgba(100, 100, 100, 0.5);
+ 
+}
+::placeholder{
+  color:rgb(228, 225, 222);
+  font-weight: normal;
+}
