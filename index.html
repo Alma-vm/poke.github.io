@@ -13,17 +13,31 @@
 <body>
     <header class="header2">
         <div class="logo">PokeDex</div>
-        <nav class= "posbtn">
-            <button class="perfilbtn">Perfil</button>
+        <nav class="posbtn">
+            <a id="inicio" href="index.html">Inicio</a>
+            <!-- <button class="perfilbtn">Perfil</button> -->
+            <!-- Trigger/Open The Modal -->
+            <button id="perfilbtn">Contacto</button>
+            <!-- The Modal -->
+            <div id="myModal" class="modal">
+
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <section class="infp">
+                        <h2>Informacion De Contacto</h2>
+                        <p>Nombre: Alma Angelica Velez Muñoz</p>
+                        <p>Correo: velezalma00@gmail.com</p>
+                        <p>Tel: 55555555555</p>
+                    </section>
+                    <!-- <p> Nombre: Alma Angelica Velez Muñoz</p> -->
+                </div>
+            </div>
         </nav>
-        <section class="infp">
-            <li>Nombre: Alma Angelica Velez Muñoz</li>
-            <li>Correo: velezalma00@gmail.com</li>
-            <li>Tel: 55555555555</li>
-        </section>
     </header>
     <h1>PokeList</h1>
-    <div class="pokeData"></div>
+    <input id="buscar" type="text" placeholder="Busca Tu Pokemon" color="#fff">
+    <div id="pokeData"></div>
     </div>
     <footer class="pagination">
         <ul class="pagination">
